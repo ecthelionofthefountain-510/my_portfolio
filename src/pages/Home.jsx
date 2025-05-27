@@ -51,7 +51,7 @@ const Home = () => {
           <Link to="projects" smooth={true} offset={-80} duration={500}>
             <GlowingButtonV5>See Projects</GlowingButtonV5>
           </Link>
-          <Link to="contact" smooth={true} offset={-80} duration={500}>
+          <Link to="calltoaction" smooth={true} offset={-80} duration={500}>
             <GlowingButtonV5>Contact Me</GlowingButtonV5>
           </Link>
         </div>

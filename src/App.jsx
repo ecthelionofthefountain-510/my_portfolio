@@ -115,7 +115,7 @@ function App() {
 
         <img src="/assets/smoke-divider-bright.svg" alt="Divider" className="w-full h-[200px] pointer-events-none select-none" />
 
-        <motion.section
+        {/* <motion.section
           id="contact"
           className="py-24 px-4"
           initial="hidden"
@@ -124,7 +124,7 @@ function App() {
           variants={fadeVariant}
         >
           <Contact />
-        </motion.section>
+        </motion.section> */}
       </main>
 
       <footer className="bg-white text-gray-700 dark:bg-black dark:text-gray-400 text-center text-sm py-6 mt-10">

@@ -12,8 +12,8 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
     { to: 'projects', label: 'Projects' },
     { to: 'stats', label: 'Stats' },
     { to: 'testimonials', label: 'Client Reviews' },
-    { to: 'calltoaction', label: 'Collab' },
-    { to: 'contact', label: 'Contact' }
+    { to: 'calltoaction', label: 'Contact' },
+
   ];
 
   return (
