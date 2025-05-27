@@ -1,0 +1,46 @@
+/* index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+.section-divider-smoke {
+  height: 160px;
+  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.08) 0%, rgba(0, 0, 0, 0) 80%);
+  opacity: 0.25;
+  filter: blur(60px);
+  margin: -40px 0;
+  pointer-events: none;
+}
+
+@layer components {
+  .dark-toggle {
+    @apply w-16 h-16 rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 shadow-inner bg-gradient-to-b from-zinc-800 to-zinc-900 dark:from-zinc-100 dark:to-zinc-300;
+  }
+
+  .dark-toggle .icon {
+    @apply w-6 h-6 border-4 border-white rounded-full transition-all duration-300;
+  }
+
+  .dark .dark-toggle {
+    @apply bg-gradient-to-b from-zinc-300 to-zinc-100;
+  }
+
+  .dark .dark-toggle .icon {
+    @apply border-black;
+  }
+}
+
+.active {
+  color: #ff00e6; /* t.ex. Tailwind blue-400 */
+  font-weight: 600;
+  /* border-bottom: 2px solid #5e0000; */
+}
