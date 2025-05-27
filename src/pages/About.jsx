@@ -66,7 +66,7 @@ const About = () => {
         viewport={{ once: true }}
       >
         <img
-          src="/assets/profile-picture.jpg"
+          src="assets/profile-picture.jpg"
           alt="Profile"
           className="rounded-xl shadow-lg grayscale hover:grayscale-0 transition duration-500 object-cover w-full"
         />

@@ -39,7 +39,7 @@ function App() {
         <meta name="description" content="Portfolio of Kevin Lundstedt – .NET & React developer with a focus on AI, fullstack projects, and clean code." />
         <meta property="og:title" content="Kevin Lundstedt | Portfolio" />
         <meta property="og:description" content=".NET and React developer with a passion for AI and modern software design." />
-        <meta property="og:image" content="/assets/preview.png" />
+        <meta property="og:image" content="assets/preview.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Helmet>
 
@@ -62,7 +62,7 @@ function App() {
           <Home />
         </motion.section>
 
-        <img src="/assets/smoke-divider-bright.svg" alt="Divider" className="w-full h-[200px] pointer-events-none select-none" />
+        <img src="assets/smoke-divider-bright.svg" alt="Divider" className="w-full h-[200px] pointer-events-none select-none" />
         
         <motion.section
           id="about"
@@ -75,7 +75,7 @@ function App() {
           <About />
         </motion.section>
 
-        <img src="/assets/smoke-divider-bright.svg" alt="Divider" className="w-full h-[200px] pointer-events-none select-none" />
+        <img src="assets/smoke-divider-bright.svg" alt="Divider" className="w-full h-[200px] pointer-events-none select-none" />
 
         <motion.section
           id="projects"
@@ -88,19 +88,19 @@ function App() {
           <Projects />
         </motion.section>
 
-        <img src="/assets/smoke-divider-bright.svg" alt="Divider" className="w-full h-[200px] pointer-events-none select-none" />
+        <img src="assets/smoke-divider-bright.svg" alt="Divider" className="w-full h-[200px] pointer-events-none select-none" />
 
         <section id="stats">
           <Stats />
         </section>
 
-        <img src="/assets/smoke-divider-bright.svg" alt="Divider" className="w-full h-[200px] pointer-events-none select-none" />
+        <img src="assets/smoke-divider-bright.svg" alt="Divider" className="w-full h-[200px] pointer-events-none select-none" />
 
         <section id="testimonials">
           <Testimonials />
         </section>
 
-        <img src="/assets/smoke-divider-bright.svg" alt="Divider" className="w-full h-[200px] pointer-events-none select-none" />
+        <img src="assets/smoke-divider-bright.svg" alt="Divider" className="w-full h-[200px] pointer-events-none select-none" />
 
         <motion.section
         id="calltoaction"
@@ -113,7 +113,7 @@ function App() {
         <CallToAction />
         </motion.section>
 
-        <img src="/assets/smoke-divider-bright.svg" alt="Divider" className="w-full h-[200px] pointer-events-none select-none" />
+        <img src="assets/smoke-divider-bright.svg" alt="Divider" className="w-full h-[200px] pointer-events-none select-none" />
 
         {/* <motion.section
           id="contact"
