@@ -13,7 +13,6 @@ const About = () => {
         style={{ y }}
         className="absolute top-0 left-1/2 -translate-x-1/2 text-6xl font-extrabold text-black dark:text-white opacity-5 select-none pointer-events-none"
       >
-        About
       </motion.h2>
 
       <motion.div className="pt-10" style={{ y }}>
