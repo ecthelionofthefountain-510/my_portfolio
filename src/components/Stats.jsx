@@ -1,56 +1,67 @@
 // components/Stats.jsx
 import { motion } from 'framer-motion';
+import { FaCode, FaUsers, FaClock } from 'react-icons/fa';
+import CountUp from 'react-countup';
 
 const stats = [
-  {
-    number: '10+',
-    label: 'Fullstack Projects'
-  },
-  {
-    number: '3',
-    label: 'Team Collaborations'
-  },
-  {
-    number: '8+',
-    label: 'Months of Experience'
-  }
+	{
+		number: 10,
+		suffix: '+',
+		label: 'Fullstack Projects',
+		icon: <FaCode className="text-3xl mb-2 text-pink-400" />,
+	},
+	{
+		number: 3,
+		label: 'Team Collaborations',
+		icon: <FaUsers className="text-3xl mb-2 text-blue-400" />,
+	},
+	{
+		number: 8,
+		suffix: '+',
+		label: 'Months of Experience',
+		icon: <FaClock className="text-3xl mb-2 text-green-400" />,
+	},
 ];
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 20 },
-  visible: (i) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: i * 0.2,
-      duration: 0.6
-    }
-  })
+	hidden: { opacity: 0, y: 20 },
+	visible: (i) => ({
+		opacity: 1,
+		y: 0,
+		transition: {
+			delay: i * 0.2,
+			duration: 0.6,
+		},
+	}),
 };
 
 const Stats = () => {
-  return (
-    <section className="max-w-6xl mx-auto py-24 px-6 text-white text-center">
-      <div className="grid gap-8 md:grid-cols-3">
-        {stats.map((item, i) => (
-          <motion.div
-            key={item.label}
-            className="bg-black/40 backdrop-blur rounded-xl py-10 px-6 border border-white/10 shadow-lg hover:shadow-xl transition"
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.5 }}
-            custom={i}
-          >
-            <div className="text-4xl font-bold mb-2 bg-white bg-clip-text text-transparent">
-              {item.number}
-            </div>
-            <div className="text-sm text-gray-300">{item.label}</div>
-          </motion.div>
-        ))}
-      </div>
-    </section>
-  );
+	return (
+		<section className="max-w-6xl mx-auto py-24 px-6 text-white text-center">
+			<h2 className="text-3xl font-bold mb-8">Quick Stats</h2>
+			<p className="mb-12 text-gray-400">A snapshot of my journey so far.</p>
+			<div className="grid gap-8 md:grid-cols-3">
+				{stats.map((item, i) => (
+					<motion.div
+						key={item.label}
+						className="bg-black/40 backdrop-blur rounded-xl py-10 px-6 border border-white/10 shadow-lg hover:shadow-xl transition flex flex-col items-center"
+						variants={fadeUp}
+						initial="hidden"
+						whileInView="visible"
+						viewport={{ once: true, amount: 0.5 }}
+						custom={i}
+					>
+						{item.icon}
+						<div className="text-4xl font-bold mb-2 bg-white bg-clip-text text-transparent">
+							<CountUp end={item.number} duration={1.2} />
+							{item.suffix}
+						</div>
+						<div className="text-sm text-gray-300">{item.label}</div>
+					</motion.div>
+				))}
+			</div>
+		</section>
+	);
 };
 
 export default Stats;

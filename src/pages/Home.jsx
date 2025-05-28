@@ -24,25 +24,27 @@ const Home = () => {
 
   return (
     <section className="relative h-screen flex items-center justify-center text-center bg-white text-black dark:bg-black dark:text-white overflow-hidden">
-<video
-  autoPlay
-  loop
-  muted
-  playsInline
-  className="absolute inset-0 w-full h-full object-cover z-0 opacity-30"
->
-  <source src="assets/bg.mp4" type="video/mp4" />
-  Your browser does not support the video tag.
-</video>
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        aria-hidden="true"
+        tabIndex={-1}
+        className="absolute inset-0 w-full h-full object-cover z-0 opacity-30"
+      >
+        <source src="assets/bg.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        className="z-10 px-24 mt-40"
+        className="z-10 px-4 sm:px-8 md:px-24 mt-40"
       >
-        <h1 className="text-4xl md:text-8xl font-bold mb-4">
+        <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold mb-4">
           <span>{text}</span>
-          {!hasFinished && <span className="animate-pulse">|</span>}
+          {!hasFinished && <span className="animate-pulse" aria-hidden="true">|</span>}
         </h1>
         <p className="text-lg md:text-xl text-black dark:text-white mb-8 max-w-xl mx-auto">
           .NET + React developer with a focus on clean code, AI-driven apps and interactive frontend experiences.

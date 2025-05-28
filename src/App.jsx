@@ -5,11 +5,10 @@ import { motion } from 'framer-motion';
 import Home from './pages/Home';
 import Projects from './pages/Projects';
 import About from './pages/About';
-import Contact from './pages/Contact';
 import Navbar from './components/Navbar';
 import Stats from './components/Stats';
 import Testimonials from './components/Testimonials';
-import CallToAction from './components/CallToAction';
+import Contact from './components/Contact';
 
 function App() {
   const [darkMode, setDarkMode] = useState(true);
@@ -103,28 +102,18 @@ function App() {
         <img src="assets/smoke-divider-bright.svg" alt="Divider" className="w-full h-[200px] pointer-events-none select-none" />
 
         <motion.section
-        id="calltoaction"
+        id="contact"
         className="py-24 px-4"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
         variants={fadeVariant}
         >
-        <CallToAction />
+        <Contact />
         </motion.section>
 
         <img src="assets/smoke-divider-bright.svg" alt="Divider" className="w-full h-[200px] pointer-events-none select-none" />
 
-        {/* <motion.section
-          id="contact"
-          className="py-24 px-4"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={fadeVariant}
-        >
-          <Contact />
-        </motion.section> */}
       </main>
 
       <footer className="bg-white text-gray-700 dark:bg-black dark:text-gray-400 text-center text-sm py-6 mt-10">

@@ -84,6 +84,9 @@ const Projects = () => {
         <div
           className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/80 backdrop-blur-sm"
           onClick={() => setModal({ images: null, index: 0 })}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Project image gallery"
         >
           <div
             className="relative flex flex-col items-center"
@@ -94,15 +97,15 @@ const Projects = () => {
           >
             <img
               src={modal.images[modal.index]}
-              alt="Project large"
-              className="max-h-[80vh] max-w-[90vw] rounded-xl shadow-2xl border-4 border-white dark:border-zinc-800"
+              alt={`Screenshot ${modal.index + 1} of project`}
+              className="max-h-[80vh] max-w-[90vw] w-full rounded-xl shadow-2xl border-4 border-white dark:border-zinc-800"
             />
             {/* {modal.images.length > 1 && (
               <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/70 text-white text-xs px-3 py-1 rounded-full shadow-lg pointer-events-none select-none animate-pulse">
                 Swipe or use arrows for more images
               </div>
-            )}
-            <button
+            )} */}
+            {/* <button
               onClick={() => setModal({ images: null, index: 0 })}
               className="absolute top-2 right-2 bg-black/70 rounded-full p-2 text-white hover:bg-black"
               aria-label="Close"
@@ -204,19 +207,24 @@ const Projects = () => {
         </p>
       </div>
 
-      <div className="projects-grid grid md:grid-cols-2 gap-6">
+      <div className="projects-grid grid sm:grid-cols-1 md:grid-cols-2 gap-6">
         {filteredProjects.map((project, i) => (
           <div
             key={project.title}
             className="project-card group relative overflow-hidden rounded-xl shadow-lg bg-white/90 dark:bg-zinc-900/90 border border-transparent transition-all duration-500 cursor-pointer"
             onClick={() => setExpandedIndex(i)}
+            tabIndex={0}
+            aria-label={`Open details for ${project.title}`}
+            onKeyDown={e => {
+              if (e.key === 'Enter' || e.key === ' ') setExpandedIndex(i);
+            }}
           >
             <img
               src={project.images[0]}
-              alt={project.title}
-              className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500"
+              alt={`Screenshot of ${project.title}`}
+              className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-100"
             />
-            <div className="absolute inset-0 bg-black/40 flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 transition">
+            <div className="absolute inset-0 bg-black/40 flex flex-col justify-center items-center opacity-0 group-hover:opacity-1000 transition">
               {/* <h3 className="text-white text-2xl font-bold mb-4">{project.title}</h3> */}
             </div>
           </div>

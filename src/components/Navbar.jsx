@@ -1,72 +1,89 @@
 import { useState } from 'react';
-import FancyToggle from './FancyToggle';
 import { Link } from 'react-scroll';
-import { Menu, X } from 'lucide-react'; // Lägg till denna rad
+import { Menu, X } from 'lucide-react';
 
-const Navbar = ({ darkMode, toggleDarkMode }) => {
-  const [menuOpen, setMenuOpen] = useState(false);
+const navLinks = [
+	{ to: 'home', label: 'Home' },
+	{ to: 'about', label: 'About' },
+	{ to: 'projects', label: 'Projects' },
+	{ to: 'stats', label: 'Stats' },
+	{ to: 'testimonials', label: 'Client Reviews' },
+	{ to: 'contact', label: 'Contact' },
+];
 
-  const navLinks = [
-    { to: 'home', label: 'Home' },
-    { to: 'about', label: 'About' },
-    { to: 'projects', label: 'Projects' },
-    { to: 'stats', label: 'Stats' },
-    { to: 'testimonials', label: 'Client Reviews' },
-    { to: 'calltoaction', label: 'Contact' },
+const Navbar = () => {
+	const [menuOpen, setMenuOpen] = useState(false);
 
-  ];
+	return (
+		<nav className="fixed top-0 left-0 w-full px-4 py-3 z-50 backdrop-blur-md bg-black/70 text-white">
+			<div className="max-w-6xl mx-auto flex items-center justify-between">
+				<Link
+					to="home"
+					smooth
+					offset={-80}
+					duration={500}
+					className="text-xl font-bold cursor-pointer"
+					aria-label="Go to home"
+				>
+					Kevin Lundstedt
+				</Link>
 
-  return (
-    <nav className="fixed top-0 left-0 w-full px-4 py-3 z-50 backdrop-blur-md bg-black/50 text-white">
-      <div className="max-w-8xl mx-auto flex items-center justify-between">
-        <Link to="home" smooth offset={-80} duration={500}>
-          {/* <img src="/assets/logo.png" alt="Logo" className="h-10 cursor-pointer" /> */}
-        </Link>
+				{/* Desktop links */}
+				<div className="hidden md:flex gap-6">
+					{navLinks.map((link) => (
+						<Link
+							key={link.to}
+							to={link.to}
+							smooth
+							offset={-80}
+							duration={500}
+							spy={true}
+							activeClass="active"
+							className={
+								link.label === 'Contact'
+									? "ml-4 bg-pink-500 text-white px-4 py-1 rounded-full shadow hover:bg-pink-400 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400"
+									: "cursor-pointer hover:text-pink-400 transition-colors px-2 py-1 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400"
+							}
+						>
+							{link.label}
+						</Link>
+					))}
+				</div>
 
-        <div className="hidden md:flex gap-6">
-          {navLinks.map((link) => (
-            <Link
-              key={link.to}
-              to={link.to}
-              smooth
-              offset={-80}
-              duration={500}
-              spy={true}
-              activeClass="active"
-              className="cursor-pointer hover:text-stone-400 transition-colors"
-            >
-              {link.label}
-            </Link>
-          ))}
-        </div>
+				{/* Hamburger menu button */}
+				<button
+					className="md:hidden text-white p-2 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400"
+					aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+					onClick={() => setMenuOpen(!menuOpen)}
+				>
+					{menuOpen ? <X size={28} /> : <Menu size={28} />}
+				</button>
+			</div>
 
-        <div className="flex items-center gap-4">
-          <FancyToggle darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
-          <button className="md:hidden" onClick={() => setMenuOpen(!menuOpen)}>
-            {menuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
-      </div>
-
-      {menuOpen && (
-        <div className="md:hidden mt-4 px-6 space-y-4">
-          {navLinks.map((link) => (
-            <Link
-              key={link.to}
-              to={link.to}
-              smooth
-              offset={-80}
-              duration={500}
-              onClick={() => setMenuOpen(false)}
-              className="block text-white hover:text-stone-700 transition-colors"
-            >
-              {link.label}
-            </Link>
-          ))}
-        </div>
-      )}
-    </nav>
-  );
+			{/* Mobile menu */}
+			{menuOpen && (
+				<div className="md:hidden mt-4 px-6 space-y-4 bg-black/90 py-4 rounded shadow-lg">
+					{navLinks.map((link) => (
+						<Link
+							key={link.to}
+							to={link.to}
+							smooth
+							offset={-80}
+							duration={500}
+							onClick={() => setMenuOpen(false)}
+							className={
+								link.label === 'Contact'
+									? "block bg-pink-500 text-white text-lg px-4 py-2 rounded-full shadow hover:bg-pink-400 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400"
+									: "block text-white text-lg hover:text-pink-400 transition-colors px-2 py-2 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400"
+							}
+						>
+							{link.label}
+						</Link>
+					))}
+				</div>
+			)}
+		</nav>
+	);
 };
 
 export default Navbar;

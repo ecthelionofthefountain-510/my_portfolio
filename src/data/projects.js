@@ -14,8 +14,8 @@ export const projects = [
     description: "A responsive React app for tracking watched series and movies using the TMDB API, with filter and favorite support.",
     tech: ["React", "JavaScript", "TMDB API", "CSS"],
     link: "https://github.com/ecthelionofthefountain-510/mobile-tv-tracker",
-    images: ["assets/mobile-tv-tracker.png",
-    "assets/mobile-tv-tracker2.png",
+    images: ["assets/mobile-tv-tracker2.png",
+    "assets/mobile-tv-tracker.png",
     "assets/mobile-tv-tracker3.png",
     "assets/mobile-tv-tracker4.png",
     "assets/mobile-tv-tracker5.png"
