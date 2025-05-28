@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-scroll';
 import { Menu, X } from 'lucide-react';
 
@@ -13,9 +13,16 @@ const navLinks = [
 
 const Navbar = () => {
 	const [menuOpen, setMenuOpen] = useState(false);
+	const [scrolled, setScrolled] = useState(false);
+
+	useEffect(() => {
+		const onScroll = () => setScrolled(window.scrollY > 10);
+		window.addEventListener('scroll', onScroll);
+		return () => window.removeEventListener('scroll', onScroll);
+	}, []);
 
 	return (
-		<nav className="fixed top-0 left-0 w-full px-4 py-3 z-50 backdrop-blur-md bg-black/70 text-white">
+		<nav className={`fixed top-0 left-0 w-full px-4 py-3 z-50 backdrop-blur-md bg-black/70 text-white transition-shadow ${scrolled ? 'shadow-lg' : ''}`}>
 			<div className="max-w-6xl mx-auto flex items-center justify-between">
 				<Link
 					to="home"
@@ -38,10 +45,10 @@ const Navbar = () => {
 							offset={-80}
 							duration={500}
 							spy={true}
-							activeClass="active"
+							activeClass={link.label === 'Contact' ? "active-contact" : "active"}
 							className={
 								link.label === 'Contact'
-									? "ml-4 bg-pink-500 text-white px-4 py-1 rounded-full shadow hover:bg-pink-400 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400"
+									? "ml-4 bg-pink-500 text-white px-4 py-1 rounded-full shadow hover:bg-pink-400 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400 cursor-pointer active:text-white"
 									: "cursor-pointer hover:text-pink-400 transition-colors px-2 py-1 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400"
 							}
 						>
@@ -73,8 +80,8 @@ const Navbar = () => {
 							onClick={() => setMenuOpen(false)}
 							className={
 								link.label === 'Contact'
-									? "block bg-pink-500 text-white text-lg px-4 py-2 rounded-full shadow hover:bg-pink-400 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400"
-									: "block text-white text-lg hover:text-pink-400 transition-colors px-2 py-2 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400"
+									? "block bg-pink-500 text-white text-lg px-4 py-2 rounded-full shadow hover:bg-pink-400 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400 cursor-pointer"
+									: "block text-white text-lg hover:text-pink-400 transition-colors px-2 py-2 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400 cursor-pointer"
 							}
 						>
 							{link.label}

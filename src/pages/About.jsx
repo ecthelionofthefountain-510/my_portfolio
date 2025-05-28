@@ -37,7 +37,7 @@ const About = () => {
               key={i}
               className="px-3 py-1 rounded-full text-sm
                 bg-gray-200 text-gray-900
-                dark:bg-gray-800 dark:text-white
+                dark:bg-gray-800 dark:text-pink-400
                 transition-colors"
             >
               {skill}

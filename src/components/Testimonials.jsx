@@ -49,12 +49,37 @@ const Testimonials = () => {
 			role="region"
 			aria-labelledby="testimonials-heading"
 		>
-			<h2
-				id="testimonials-heading"
-				className="text-4xl font-bold text-center text-white mb-16"
-			>
-				What Others Say
-			</h2>
+			<div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center mb-20">
+				{/* Vänster: Bild */}
+				<div className="hidden md:block">
+					<img
+						src="assets/client-reviews-hero.jpg"
+						alt="Client at work"
+						className="rounded-2xl grayscale shadow-xl object-cover w-full h-[320px] md:h-[400px]"
+					/>
+				</div>
+				{/* Höger: Text och knappar */}
+				<div>
+					{/* <span className="inline-block bg-zinc-800 text-gray-200 text-xs px-3 py-1 rounded-full mb-4">
+						◎ Reviews
+					</span> */}
+					<h2 className="text-5xl font-light text-white mb-4">
+						Client Reviews
+					</h2>
+					<p className="text-gray-400 text-lg mb-8">
+						Real feedback from clients who trusted my design expertise to elevate
+						their brands successfully.
+					</p>
+					<div className="flex gap-4">
+						<button className="bg-black border border-gray-400 text-white px-5 py-2 rounded-lg shadow-md hover:shadow-white/20 transition-all focus:outline-none focus:ring-2 focus:ring-pink-400">
+							Book a Free Call
+						</button>
+						<button className="bg-black border border-gray-400 text-white px-5 py-2 rounded-lg shadow-md hover:shadow-white/20 transition-all focus:outline-none focus:ring-2 focus:ring-pink-400">
+							See Services
+						</button>
+					</div>
+				</div>
+			</div>
 
 			<div className="relative">
 				{/* Gradient sides */}
@@ -78,7 +103,9 @@ const Testimonials = () => {
 									alt={`Portrait of ${item.name}`}
 									className="w-18 h-18 rounded-full object-cover border border-white/10 grayscale mb-3"
 								/>
-								<div className="text-4xl font-semibold text-white">{item.name}</div>
+								<div className="text-4xl font-semibold text-white">
+									{item.name}
+								</div>
 								<div className="text-sm text-gray-400">{item.title}</div>
 							</div>
 
@@ -88,10 +115,17 @@ const Testimonials = () => {
 								"{item.quote}"
 							</blockquote>
 
-							<div className="flex items-center gap-1 text-yellow-400 text-lg mt-2" aria-label={`${item.rating} out of 5 stars`}>
-								<span className="text-gray-300 text-base mr-1">{item.rating.toFixed(1)}</span>
+							<div
+								className="flex items-center gap-1 text-yellow-400 text-lg mt-2"
+								aria-label={`${item.rating} out of 5 stars`}
+							>
+								<span className="text-gray-300 text-base mr-1">
+									{item.rating.toFixed(1)}
+								</span>
 								{'★'.repeat(item.rating)}
-								<span className="text-gray-500">{'★'.repeat(5 - item.rating)}</span>
+								<span className="text-gray-500">
+									{'★'.repeat(5 - item.rating)}
+								</span>
 							</div>
 						</div>
 					))}

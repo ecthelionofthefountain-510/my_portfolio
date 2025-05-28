@@ -11,7 +11,10 @@ const Projects = () => {
   const [expandedIndex, setExpandedIndex] = useState(null);
   const [touchStartX, setTouchStartX] = useState(null);
   const [touchEndX, setTouchEndX] = useState(null);
+  const [menuOpen, setMenuOpen] = useState(false);
   const ref = useRef(null);
+  const modalRef = useRef(null);
+  const expandedRef = useRef(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "start start"] });
   const y = useTransform(scrollYProgress, [0, 1], [20, -20]);
 
@@ -77,11 +80,42 @@ const Projects = () => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [modal.images]);
 
+  // Lägg till denna useEffect för att stänga den expanderade vyn med Escape-tangenten
+  useEffect(() => {
+    if (expandedIndex === null) return;
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') setExpandedIndex(null);
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [expandedIndex]);
+
+  // Disable scroll when menu is open
+  useEffect(() => {
+    const modalOpen = !!modal.images || expandedIndex !== null;
+    document.body.style.overflow = modalOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [modal.images, expandedIndex]);
+
+  useEffect(() => {
+    if (modal.images && modalRef.current) {
+      modalRef.current.focus();
+    }
+  }, [modal.images]);
+
+  useEffect(() => {
+    if (expandedIndex !== null && expandedRef.current) {
+      expandedRef.current.focus();
+    }
+  }, [expandedIndex]);
+
   return (
     <section className="max-w-4xl mx-auto" ref={ref}>
       {/* Modal for multiple images */}
       {modal.images && (
         <div
+          ref={modalRef}
+          tabIndex={-1}
           className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/80 backdrop-blur-sm"
           onClick={() => setModal({ images: null, index: 0 })}
           role="dialog"
@@ -94,24 +128,21 @@ const Projects = () => {
             onTouchStart={onTouchStart}
             onTouchMove={onTouchMove}
             onTouchEnd={onTouchEnd}
+            ref={modalRef}
+            tabIndex={-1}
           >
             <img
               src={modal.images[modal.index]}
               alt={`Screenshot ${modal.index + 1} of project`}
+              loading="lazy"
               className="max-h-[80vh] max-w-[90vw] w-full rounded-xl shadow-2xl border-4 border-white dark:border-zinc-800"
             />
-            {/* {modal.images.length > 1 && (
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/70 text-white text-xs px-3 py-1 rounded-full shadow-lg pointer-events-none select-none animate-pulse">
-                Swipe or use arrows for more images
-              </div>
-            )} */}
-            {/* <button
-              onClick={() => setModal({ images: null, index: 0 })}
-              className="absolute top-2 right-2 bg-black/70 rounded-full p-2 text-white hover:bg-black"
-              aria-label="Close"
-            >
-              <X size={28} />
-            </button> */}
+            <h3 className="text-xl font-bold text-white mt-4 mb-1">
+              {projects.find(p => p.images === modal.images)?.title}
+            </h3>
+            <p className="text-gray-300 text-center mb-2 max-w-lg">
+              {projects.find(p => p.images === modal.images)?.description}
+            </p>
             {/* Prev/Next buttons */}
             {modal.images.length > 1 && (
               <>
@@ -160,16 +191,24 @@ const Projects = () => {
 
       {expandedIndex !== null && (
         <div
+          ref={expandedRef}
+          tabIndex={-1}
           className="fixed inset-0 z-[9998] flex items-center justify-center bg-black/70 backdrop-blur"
           onClick={() => setExpandedIndex(null)}
+          role="dialog"
+          aria-modal="true"
+          aria-label={`Detaljer för ${filteredProjects[expandedIndex].title}`}
         >
           <div
             className="relative bg-white dark:bg-zinc-900 rounded-xl shadow-2xl p-8 max-w-2xl w-full flex flex-col items-center"
             onClick={e => e.stopPropagation()}
+            ref={expandedRef}
+            tabIndex={-1}
           >
             <img
               src={filteredProjects[expandedIndex].images[0]}
               alt={filteredProjects[expandedIndex].title}
+              loading="lazy"
               className="max-h-[60vh] rounded mb-6"
             />
             <h3 className="text-2xl font-bold mb-2">{filteredProjects[expandedIndex].title}</h3>
@@ -181,7 +220,7 @@ const Projects = () => {
                 setExpandedIndex(null);
               }}
             >
-              Visa projekt
+              Show project
             </button>
             <button
               className="absolute top-2 right-2 text-gray-400 hover:text-black dark:hover:text-white"
@@ -207,25 +246,25 @@ const Projects = () => {
         </p>
       </div>
 
-      <div className="projects-grid grid sm:grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="projects-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredProjects.map((project, i) => (
           <div
             key={project.title}
-            className="project-card group relative overflow-hidden rounded-xl shadow-lg bg-white/90 dark:bg-zinc-900/90 border border-transparent transition-all duration-500 cursor-pointer"
+            className="project-card bg-zinc-900 rounded-xl shadow-lg p-6 flex flex-col items-start hover:shadow-pink-400/20 transition-transform duration-200 hover:scale-105 cursor-pointer min-h-[270px] max-h-[370px] overflow-hidden"
             onClick={() => setExpandedIndex(i)}
             tabIndex={0}
-            aria-label={`Open details for ${project.title}`}
-            onKeyDown={e => {
-              if (e.key === 'Enter' || e.key === ' ') setExpandedIndex(i);
-            }}
+            aria-label={`Visa detaljer för ${project.title}`}
           >
-            <img
-              src={project.images[0]}
-              alt={`Screenshot of ${project.title}`}
-              className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-100"
-            />
-            <div className="absolute inset-0 bg-black/40 flex flex-col justify-center items-center opacity-0 group-hover:opacity-1000 transition">
-              {/* <h3 className="text-white text-2xl font-bold mb-4">{project.title}</h3> */}
+            {/* Enkel ikon eller initialer */}
+            <div className="w-12 h-12 rounded-full bg-pink-500 flex items-center justify-center text-white text-2xl font-bold mb-4">
+              {project.title[0]}
+            </div>
+            <h3 className="text-lg font-semibold mb-1">{project.title}</h3>
+            <p className="text-zinc-400 text-sm mb-2 overflow-hidden text-ellipsis line-clamp-3">{project.description}</p>
+            <div className="flex flex-wrap gap-2 mt-auto">
+              {project.tech.map(tech => (
+                <span key={tech} className="bg-zinc-800 text-xs px-2 py-1 rounded text-pink-300">{tech}</span>
+              ))}
             </div>
           </div>
         ))}
