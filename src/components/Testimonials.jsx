@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import './Testimonials.css';
 
 const testimonials = [
 	{
@@ -70,14 +71,10 @@ const Testimonials = () => {
 						Real feedback from clients who trusted my design expertise to elevate
 						their brands successfully.
 					</p>
-					<div className="flex gap-4">
-						<button className="bg-black border border-gray-400 text-white px-5 py-2 rounded-lg shadow-md hover:shadow-white/20 transition-all focus:outline-none focus:ring-2 focus:ring-pink-400">
-							Book a Free Call
-						</button>
-						<button className="bg-black border border-gray-400 text-white px-5 py-2 rounded-lg shadow-md hover:shadow-white/20 transition-all focus:outline-none focus:ring-2 focus:ring-pink-400">
-							See Services
-						</button>
-					</div>
+					<button className="testimonials"> Call me
+					</button>
+					<button className="testimonials"> See services
+					</button>
 				</div>
 			</div>
 

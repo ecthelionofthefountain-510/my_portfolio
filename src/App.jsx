@@ -117,10 +117,10 @@ function App() {
       </main>
 
       <footer className="bg-white text-gray-700 dark:bg-black dark:text-gray-400 text-center text-sm py-6 mt-10">
-        <p>© {new Date().getFullYear()} Kevin Lundstedt. All rights reserved.</p>
+        <p>© {new Date().getFullYear()} Kevin Lundstedt. All rights reversed.</p>
         <div className="mt-2 flex justify-center gap-4">
-          <a href="https://github.com/ecthelionofthefountain-510" target="_blank" rel="noreferrer" className="hover:text-white">GitHub</a>
-          <a href="https://linkedin.com/in/kevin-lundstedt" target="_blank" rel="noreferrer" className="hover:text-white">LinkedIn</a>
+          {/* <a href="https://github.com/ecthelionofthefountain-510" target="_blank" rel="noreferrer" className="hover:text-white">GitHub</a>
+          <a href="https://linkedin.com/in/kevin-lundstedt" target="_blank" rel="noreferrer" className="hover:text-white">LinkedIn</a> */}
         </div>
       </footer>
     </div>
