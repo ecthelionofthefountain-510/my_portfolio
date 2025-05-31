@@ -50,41 +50,38 @@ const Testimonials = () => {
 			role="region"
 			aria-labelledby="testimonials-heading"
 		>
-			<div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center mb-20">
+			<div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 items-center mb-10">
 				{/* Vänster: Bild */}
 				<div className="hidden md:block">
 					<img
 						src="assets/client-reviews-hero.jpg"
 						alt="Client at work"
-						className="rounded-2xl grayscale shadow-xl object-cover w-full h-[320px] md:h-[400px]"
+						className="rounded-2xl grayscale shadow-xl object-cover w-full h-[180px] sm:h-[320px] md:h-[400px]"
 					/>
 				</div>
 				{/* Höger: Text och knappar */}
 				<div>
-					{/* <span className="inline-block bg-zinc-800 text-gray-200 text-xs px-3 py-1 rounded-full mb-4">
-						◎ Reviews
-					</span> */}
-					<h2 className="text-5xl font-light text-white mb-4">
+					<h2 className="text-3xl sm:text-5xl font-light text-white mb-2 sm:mb-4">
 						Client Reviews
 					</h2>
-					<p className="text-gray-400 text-lg mb-8">
+					<p className="text-gray-400 text-base sm:text-lg mb-6 sm:mb-8">
 						Real feedback from clients who trusted my design expertise to elevate
 						their brands successfully.
 					</p>
-					<button className="testimonials"> Call me
-					</button>
-					<button className="testimonials"> See services
-					</button>
+					<div className="flex flex-col gap-3 max-w-xs">
+						<button className="testimonials w-full">Call me</button>
+						<button className="testimonials w-full">See services</button>
+					</div>
 				</div>
 			</div>
 
 			<div className="relative">
 				{/* Gradient sides */}
-				<div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-black to-transparent z-20" />
-				<div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-black to-transparent z-20" />
+				<div className="pointer-events-none absolute inset-y-0 left-0 w-12 sm:w-24 bg-gradient-to-r from-black to-transparent z-20" />
+				<div className="pointer-events-none absolute inset-y-0 right-0 w-12 sm:w-24 bg-gradient-to-l from-black to-transparent z-20" />
 
 				<motion.div
-					className="flex gap-4 flex-nowrap will-change-transform"
+					className="testimonials-carousel flex gap-4 flex-nowrap will-change-transform"
 					animate={{ x: ['0%', '-123%'] }}
 					transition={{ duration: 40, repeat: Infinity, ease: 'linear' }}
 					aria-label="Testimonials carousel"
@@ -92,7 +89,7 @@ const Testimonials = () => {
 					{duplicated.map((item, i) => (
 						<div
 							key={i}
-							className="bg-zinc-900 text-white rounded-xl shadow-lg p-8 min-w-[90vw] max-w-[350px] sm:min-w-[420px] mx-2 flex flex-col justify-between border border-white/10"
+							className="testimonial-card bg-zinc-900 text-white rounded-xl shadow-lg p-5 sm:p-8 min-w-[85vw] max-w-[320px] sm:min-w-[420px] flex flex-col justify-between border border-white/10"
 						>
 							<div className="flex flex-col items-start mb-4">
 								<img

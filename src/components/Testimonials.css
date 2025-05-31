@@ -14,6 +14,7 @@
   text-decoration: none;
   transition: 0.3s ease all;
   z-index: 1;
+  margin-left: 1px;
 }
 
 .testimonials:before {
@@ -42,4 +43,35 @@ button:hover:before, button:focus:before {
 
 button:active {
   transform: scale(0.9);
+}
+
+@media (max-width: 600px) {
+  .testimonials {
+    width: 100%;
+    font-size: 16px;
+    padding: 0.9em 0;
+    margin-bottom: 12px;
+    box-sizing: border-box;
+  }
+  .testimonial-card {
+    min-width: 92vw !important;
+    max-width: 94vw !important;
+    padding: 16px !important;
+    margin: 0 auto 12px auto !important;
+  }
+  .testimonial-card img {
+    width: 56px !important;
+    height: 56px !important;
+    margin-bottom: 8px !important;
+  }
+  .testimonial-card .text-4xl {
+    font-size: 1.2rem !important;
+  }
+  .testimonial-card .text-base,
+  .testimonial-card .text-sm {
+    font-size: 0.95rem !important;
+  }
+  .testimonials-carousel {
+    gap: 8px !important;
+  }
 }

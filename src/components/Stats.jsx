@@ -37,28 +37,42 @@ const fadeUp = {
 
 const Stats = () => {
 	return (
-		<section className="max-w-6xl mx-auto py-24 px-6 text-white text-center">
-			<h2 className="text-3xl font-bold mb-8">Quick Stats</h2>
-			<p className="mb-12 text-gray-400">A snapshot of my journey so far.</p>
-			<div className="grid gap-8 md:grid-cols-3">
-				{stats.map((item, i) => (
-					<motion.div
-						key={item.label}
-						className="bg-black/40 backdrop-blur rounded-xl py-10 px-6 border border-white/10 shadow-lg hover:shadow-xl transition flex flex-col items-center"
-						variants={fadeUp}
-						initial="hidden"
-						whileInView="visible"
-						viewport={{ once: true, amount: 0.5 }}
-						custom={i}
-					>
-						{item.icon}
-						<div className="text-4xl font-bold mb-2 bg-white bg-clip-text text-transparent">
-							<CountUp end={item.number} duration={1.2} />
-							{item.suffix}
-						</div>
-						<div className="text-sm text-gray-300">{item.label}</div>
-					</motion.div>
-				))}
+		<section className="relative w-full min-h-screen py-24 px-6 text-white text-center overflow-hidden flex items-center justify-center">
+			<video
+				autoPlay
+				loop
+				muted
+				playsInline
+				aria-hidden="true"
+				tabIndex={-1}
+				className="absolute inset-0 w-full h-full object-cover z-0 opacity-30"
+			>
+				<source src="assets/backgrounds/bg2.mp4" type="video/mp4" />
+				Your browser does not support the video tag.
+			</video>
+			<div className="relative z-10 w-full max-w-6xl mx-auto">
+				<h2 className="text-3xl font-bold mb-8">Quick Stats</h2>
+				<p className="mb-12 text-gray-400">A snapshot of my journey so far.</p>
+				<div className="grid gap-8 md:grid-cols-3">
+					{stats.map((item, i) => (
+						<motion.div
+							key={item.label}
+							className="bg-black/40 backdrop-blur rounded-xl py-10 px-6 border border-white/10 shadow-lg hover:shadow-xl transition flex flex-col items-center"
+							variants={fadeUp}
+							initial="hidden"
+							whileInView="visible"
+							viewport={{ once: true, amount: 0.5 }}
+							custom={i}
+						>
+							{item.icon}
+							<div className="text-4xl font-bold mb-2 bg-white bg-clip-text text-transparent">
+								<CountUp end={item.number} duration={1.2} />
+								{item.suffix}
+							</div>
+							<div className="text-sm text-gray-300">{item.label}</div>
+						</motion.div>
+					))}
+				</div>
 			</div>
 		</section>
 	);

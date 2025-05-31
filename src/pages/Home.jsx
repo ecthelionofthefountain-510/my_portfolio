@@ -2,7 +2,6 @@
 import { Link } from 'react-scroll';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
-import GlowingButtonV5 from '../components/GlowingButtonV5';
 
 const Home = () => {
   const [text, setText] = useState('');
@@ -33,7 +32,7 @@ const Home = () => {
         tabIndex={-1}
         className="absolute inset-0 w-full h-full object-cover z-0 opacity-30"
       >
-        <source src="assets/bg.mp4" type="video/mp4" />
+        <source src="assets/backgrounds/bg2.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
       <motion.div
@@ -109,8 +108,20 @@ const Home = () => {
             </button>
           </Link>
         </div>
-        <div className="mt-16 animate-bounce text-gray-400 text-sm">
-          <span>Scroll down</span>
+        <div className="mt-16 flex items-center justify-center gap-4 w-full max-w-xl mx-auto">
+          <span className="flex-1 border-t border-gray-600 mr-4"></span>
+          <span className="text-gray-300 text-base">Scroll down</span>
+          <span className="mx-4">
+            {/* Mus-ikon */}
+            <svg width="28" height="40" viewBox="0 0 28 40" fill="none">
+              <rect x="1.5" y="1.5" width="25" height="37" rx="12.5" stroke="#fff" strokeWidth="2"/>
+              <circle cx="14" cy="10" r="2" fill="#fff">
+                <animate attributeName="cy" values="10;18;10" dur="1.5s" repeatCount="indefinite" />
+              </circle>
+            </svg>
+          </span>
+          <span className="text-gray-300 text-base">to see projects</span>
+          <span className="flex-1 border-t border-gray-600 ml-4"></span>
         </div>
       </motion.div>
     </section>
