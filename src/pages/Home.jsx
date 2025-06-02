@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 const Home = () => {
   const [text, setText] = useState('');
   const [hasFinished, setHasFinished] = useState(false);
-  const fullText = "Hi, I'm Kevin";
+  const fullText = "Hi Im Kevin";
 
   useEffect(() => {
     let i = 0;
@@ -41,7 +41,7 @@ const Home = () => {
         transition={{ duration: 1 }}
         className="z-10 px-4 sm:px-8 md:px-24 mt-40"
       >
-        <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold mb-4">
+        <h1 className="machineat text-4xl sm:text-6xl md:text-9xl mb-8">
           <span>{text}</span>
           {!hasFinished && <span className="animate-pulse" aria-hidden="true">|</span>}
         </h1>

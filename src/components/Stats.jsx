@@ -47,11 +47,11 @@ const Stats = () => {
 				tabIndex={-1}
 				className="absolute inset-0 w-full h-full object-cover z-0 opacity-30"
 			>
-				<source src="assets/backgrounds/bg2.mp4" type="video/mp4" />
+				<source src="assets/backgrounds/bg3.mp4" type="video/mp4" />
 				Your browser does not support the video tag.
 			</video>
 			<div className="relative z-10 w-full max-w-6xl mx-auto">
-				<h2 className="text-3xl font-bold mb-8">Quick Stats</h2>
+				<h2 className="summer-heading text-8xl font-bold mb-8">Quick Stats</h2>
 				<p className="mb-12 text-gray-400">A snapshot of my journey so far.</p>
 				<div className="grid gap-8 md:grid-cols-3">
 					{stats.map((item, i) => (

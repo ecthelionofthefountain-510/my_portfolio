@@ -61,7 +61,7 @@ const Testimonials = () => {
 				</div>
 				{/* Höger: Text och knappar */}
 				<div>
-					<h2 className="text-3xl sm:text-5xl font-light text-white mb-2 sm:mb-4">
+					<h2 className="summer-heading text-3xl sm:text-9xl font-light text-white mb-2 sm:mb-4">
 						Client Reviews
 					</h2>
 					<p className="text-gray-400 text-base sm:text-lg mb-6 sm:mb-8">

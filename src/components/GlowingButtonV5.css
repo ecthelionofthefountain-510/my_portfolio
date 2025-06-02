@@ -1,0 +1,65 @@
+/* components/GlowingButtonV5.css */
+.glowv5-button {
+  position: relative;
+  padding: 0.6rem 2rem;
+  font-size: 1.125rem;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  letter-spacing: 0.03em;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow:
+    0 0 12px rgba(255, 255, 255, 0.12),
+    0 0 30px rgba(255, 255, 255, 0.15),
+    0 0 60px rgba(255, 255, 255, 0.1);
+  z-index: 0;
+}
+
+.glowv5-button::before {
+  content: "";
+  position: absolute;
+  width: 180%;
+  height: 180%;
+  top: 20%;
+  left: -30%;
+  background: radial-gradient(circle at bottom left, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
+  filter: blur(50px);
+  opacity: 0.8;
+  pointer-events: none;
+  z-index: -3;
+}
+
+.glowv5-button::after {
+  content: "";
+  position: absolute;
+  width: 180%;
+  height: 180%;
+  top: -60%;
+  left: -60%;
+  background: radial-gradient(circle at top right, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  filter: blur(40px);
+  opacity: 0.8;
+  pointer-events: none;
+  z-index: -2;
+}
+
+.glowv5-button:hover {
+  background: rgba(0, 0, 0, 0.85);
+  box-shadow:
+    0 0 15px rgba(255, 255, 255, 0.2),
+    0 0 40px rgba(255, 255, 255, 0.3),
+    0 0 80px rgba(255, 255, 255, 0.15),
+    inset 0 0 10px rgba(255, 255, 255, 0.05);
+}
+
+.glowv5-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3);
+}
+

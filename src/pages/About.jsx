@@ -16,7 +16,7 @@ const About = () => {
       ></motion.h2>
 
       <motion.div className="pt-10 mb-8 md:mb-0" style={{ y }}>
-        <h2 className="text-4xl font-bold text-black dark:text-white mb-4">About Me</h2>
+        <h2 className="summer-heading text-9xl font-bold text-black dark:text-white mb-4">About Me</h2>
         <p className="mb-4 text-gray-400 border-b border-gray-700 pb-4">
           I'm currently studying software development with an AI focus at NBI/Handelsakademin in Malmö. I'm passionate about working on projects that combine creativity and logic – whether it's building a real-time CRM system, an AI-driven scheduler, or a Tolkien-inspired game.
         </p>

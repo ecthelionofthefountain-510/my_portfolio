@@ -1,0 +1,84 @@
+.toggle-wrapper {
+  position: relative;
+  width: 83px;
+  height: 33px;
+  top: -25px; /* Ändra till korrekt enhet och mått */
+}
+
+.toggle-wrapper input {
+  width: 0;
+  height: 0;
+  visibility: hidden;
+}
+
+.toggle-wrapper label {
+  position: relative;
+  display: block;
+  width: 83px;
+  height: 34px;
+  background: #fbf8f8;
+  border-radius: 33px;
+  box-shadow: -3px -3px 10px #00000040,
+                 3px 3px 20px #00000040;
+  cursor: pointer;
+  transition: all .3s ease-in-out;
+}
+
+.toggle-wrapper label::after {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 32px;
+  top: 1.4px;
+  left: 1px;
+  background: linear-gradient(180deg, #ffcc96,#d8865d);
+  border-radius: 30px;
+  box-shadow: -3px -3px 10px #00000040,
+               3px 3px 20px #00000040;
+  transition: all .3s ease-in-out;
+}
+
+.toggle-wrapper input:checked + label {
+  background: #242424;
+}
+
+.toggle-wrapper input:checked + label::after {
+  left: 81.5px;
+  transform: translateX(-100%);
+  background: linear-gradient(180deg,#777,#3a3a3a);
+}
+
+.toggle-wrapper label:active::after {
+  width: 60px;
+}
+
+.toggle-wrapper label i {
+  position: absolute;
+  width: 20px;
+  top: 8.5px;
+  z-index: 5;
+  font-size: 0.83em;
+  transition: all .3s ease-in-out;
+}
+
+.toggle-wrapper label .sun {
+  left: 9px;
+  color: #fff;
+}
+
+.toggle-wrapper label .moon {
+  left: 62px;
+  color: #5d5d5d;
+}
+
+.toggle-wrapper input:checked + label .sun {
+  color: #5d5d5d;
+}
+
+.toggle-wrapper input:checked + label .moon {
+  color: #fff;
+}
+
+.toggle-wrapper .background {
+  display: none;
+}
