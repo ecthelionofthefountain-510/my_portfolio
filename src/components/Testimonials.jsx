@@ -69,17 +69,21 @@ const Testimonials = () => {
 						their brands successfully.
 					</p>
 					<div className="flex flex-col gap-3 max-w-xs">
-						<button className="testimonials w-full">Call me</button>
+						<a
+							href="https://wa.me/46708836696"
+							target="_blank"
+							rel="noopener noreferrer"
+							className="testimonials w-full text-center"
+							aria-label="Chat with me on WhatsApp"
+						>
+							Whatsapp me
+						</a>
 						<button className="testimonials w-full">See services</button>
 					</div>
 				</div>
 			</div>
 
-			<div className="relative">
-				{/* Gradient sides */}
-				<div className="pointer-events-none absolute inset-y-0 left-0 w-12 sm:w-24 bg-gradient-to-r from-black to-transparent z-20" />
-				<div className="pointer-events-none absolute inset-y-0 right-0 w-12 sm:w-24 bg-gradient-to-l from-black to-transparent z-20" />
-
+			<div className="relative px-4 sm:px-8">
 				<motion.div
 					className="testimonials-carousel flex gap-4 flex-nowrap will-change-transform"
 					animate={{ x: ['0%', '-123%'] }}

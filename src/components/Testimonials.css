@@ -30,18 +30,26 @@
   z-index: -1;
 }
 
-button:hover, button:focus {
+/* Gör så att både knapp och länk får hover-effekt */
+button.testimonials:hover,
+button.testimonials:focus,
+a.testimonials:hover,
+a.testimonials:focus {
   color: white;
 }
 
-button:hover:before, button:focus:before {
+button.testimonials:hover:before,
+button.testimonials:focus:before,
+a.testimonials:hover:before,
+a.testimonials:focus:before {
   transition: 0.5s all ease;
   left: 0;
   right: 0;
   opacity: 1;
 }
 
-button:active {
+button.testimonials:active,
+a.testimonials:active {
   transform: scale(0.9);
 }
 

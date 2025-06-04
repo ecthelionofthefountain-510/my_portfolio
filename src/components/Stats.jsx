@@ -47,7 +47,7 @@ const Stats = () => {
 				tabIndex={-1}
 				className="absolute inset-0 w-full h-full object-cover z-0 opacity-30"
 			>
-				<source src="assets/backgrounds/bg3.mp4" type="video/mp4" />
+				<source src="assets/backgrounds/bg6.mp4" type="video/mp4" />
 				Your browser does not support the video tag.
 			</video>
 			<div className="relative z-10 w-full max-w-6xl mx-auto">
