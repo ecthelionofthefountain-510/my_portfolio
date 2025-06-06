@@ -50,7 +50,38 @@ const Testimonials = () => {
 			role="region"
 			aria-labelledby="testimonials-heading"
 		>
-			<div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 items-center mb-10">
+			{/* Video background */}
+			<video
+				className="absolute top-0 left-0 w-full h-full object-cover -z-10"
+				autoPlay
+				loop
+				muted
+				aria-hidden="true"
+			>
+				<source
+					src="assets/video-background.mp4"
+					type="video/mp4"
+				/>
+				Your browser does not support the video tag.
+			</video>
+
+			{/* Gradient top */}
+			<div
+				className="absolute top-0 left-0 w-full h-24 pointer-events-none z-10"
+				style={{
+					background: 'linear-gradient(to bottom, #000 0%, transparent 100%)',
+				}}
+			/>
+
+			{/* Gradient bottom */}
+			<div
+				className="absolute bottom-0 left-0 w-full h-24 pointer-events-none z-10"
+				style={{
+					background: 'linear-gradient(to top, #000 0%, transparent 100%)',
+				}}
+			/>
+
+			<div className="relative z-20 max-w-6xl mx-auto grid md:grid-cols-2 gap-8 items-center mb-10">
 				{/* Vänster: Bild */}
 				<div className="hidden md:block">
 					<img

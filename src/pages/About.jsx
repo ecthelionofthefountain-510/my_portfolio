@@ -8,7 +8,18 @@ const About = () => {
   const y = useTransform(scrollYProgress, [0, 1], [20, -20]);
 
   return (
-    <section className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-start px-4 md:px-0 relative" ref={ref}>
+    <motion.section
+      id="about"
+      className="py-24 px-4 -mt-24 relative z-10 max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-start"
+      ref={ref}
+    >
+      {/* Gradient overlay för mjuk övergång */}
+      <div className="absolute -top-24 left-0 w-full h-24 pointer-events-none z-20"
+           style={{
+             background: 'linear-gradient(to bottom, #000 0%, transparent 100%)'
+           }}
+      />
+
       <motion.h2
         style={{ y }}
         className="absolute top-0 left-1/2 -translate-x-1/2 text-6xl font-extrabold text-black dark:text-white opacity-5 select-none pointer-events-none"
@@ -75,7 +86,7 @@ const About = () => {
           tabIndex={0}
         />
       </motion.div>
-    </section>
+    </motion.section>
   );
 };
 

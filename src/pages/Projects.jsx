@@ -125,8 +125,21 @@ const Projects = () => {
         Your browser does not support the video tag.
       </video>
 
+      {/* Gradient top */}
+      <div className="absolute top-0 left-0 w-full h-24 pointer-events-none z-10"
+           style={{
+             background: 'linear-gradient(to bottom, #000 0%, transparent 100%)'
+           }}
+      />
+      {/* Gradient bottom */}
+      <div className="absolute bottom-0 left-0 w-full h-24 pointer-events-none z-10"
+           style={{
+             background: 'linear-gradient(to top, #000 0%, transparent 100%)'
+           }}
+      />
+
       {/* Main content wrapper */}
-      <div className="relative z-10 max-w-4xl mx-auto" ref={ref}>
+      <div className="relative z-20 max-w-4xl mx-auto" ref={ref}>
         {/* Modal for multiple images */}
         {modal.images && (
           <div

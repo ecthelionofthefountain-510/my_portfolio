@@ -50,6 +50,22 @@ const Stats = () => {
 				<source src="assets/backgrounds/bg6.mp4" type="video/mp4" />
 				Your browser does not support the video tag.
 			</video>
+
+			{/* Gradient top */}
+			<div
+				className="absolute top-0 left-0 w-full h-24 pointer-events-none z-10"
+				style={{
+					background: 'linear-gradient(to bottom, #000 0%, transparent 100%)',
+				}}
+			/>
+			{/* Gradient bottom */}
+			<div
+				className="absolute bottom-0 left-0 w-full h-24 pointer-events-none z-10"
+				style={{
+					background: 'linear-gradient(to top, #000 0%, transparent 100%)',
+				}}
+			/>
+
 			<div className="relative z-10 w-full max-w-6xl mx-auto">
 				<h2 className="summer-heading text-8xl font-bold mb-8">Quick Stats</h2>
 				<p className="mb-12 text-gray-400">A snapshot of my journey so far.</p>

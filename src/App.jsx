@@ -61,7 +61,11 @@ function App() {
           <Home />
         </motion.section>
 
-        <img src="assets/smoke-divider-bright.svg" alt="Divider" className="w-full h-[200px] pointer-events-none select-none" />
+        <img
+          src="assets/smoke-divider-bright.svg"
+          alt="Divider"
+          className="w-full h-[200px] pointer-events-none select-none relative z-20 -mt-24"
+        />
         
         <motion.section
           id="about"
@@ -74,7 +78,11 @@ function App() {
           <About />
         </motion.section>
 
-        <img src="assets/smoke-divider-bright.svg" alt="Divider" className="w-full h-[200px] pointer-events-none select-none" />
+        <img
+          src="assets/smoke-divider-bright.svg"
+          alt="Divider"
+          className="w-full h-[200px] pointer-events-none select-none relative z-20 -mt-24"
+        />
 
         <motion.section
           id="projects"
@@ -87,19 +95,31 @@ function App() {
           <Projects />
         </motion.section>
 
-        <img src="assets/smoke-divider-bright.svg" alt="Divider" className="w-full h-[200px] pointer-events-none select-none" />
+        <img
+          src="assets/smoke-divider-bright.svg"
+          alt="Divider"
+          className="w-full h-[200px] pointer-events-none select-none relative z-20 -mt-24"
+        />
 
         <section id="stats">
           <Stats />
         </section>
 
-        <img src="assets/smoke-divider-bright.svg" alt="Divider" className="w-full h-[200px] pointer-events-none select-none" />
+        <img
+          src="assets/smoke-divider-bright.svg"
+          alt="Divider"
+          className="w-full h-[200px] pointer-events-none select-none relative z-20 -mt-24"
+        />
 
         <section id="testimonials">
           <Testimonials />
         </section>
 
-        <img src="assets/smoke-divider-bright.svg" alt="Divider" className="w-full h-[200px] pointer-events-none select-none" />
+        <img
+          src="assets/smoke-divider-bright.svg"
+          alt="Divider"
+          className="w-full h-[200px] pointer-events-none select-none relative z-20 -mt-24"
+        />
 
         <motion.section
         id="contact"
@@ -112,7 +132,11 @@ function App() {
         <Contact />
         </motion.section>
 
-        <img src="assets/smoke-divider-bright.svg" alt="Divider" className="w-full h-[200px] pointer-events-none select-none" />
+        <img
+          src="assets/smoke-divider-bright.svg"
+          alt="Divider"
+          className="w-full h-[200px] pointer-events-none select-none relative z-20 -mt-24"
+        />
 
       </main>
 
