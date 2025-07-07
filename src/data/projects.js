@@ -15,10 +15,14 @@ export const projects = [
     tech: ["React", "JavaScript", "TMDB API", "CSS"],
     link: "https://github.com/ecthelionofthefountain-510/mobile-tv-tracker",
     images: ["assets/mobile-tv-tracker2.png",
-    "assets/mobile-tv-tracker.png",
+    "assets/mobile-tv-tracker1.png",
+    "assets/mobile-tv-tracker2.png",
     "assets/mobile-tv-tracker3.png",
     "assets/mobile-tv-tracker4.png",
-    "assets/mobile-tv-tracker5.png"
+    "assets/mobile-tv-tracker5.png",
+    "assets/mobile-tv-tracker6.png",
+    "assets/mobile-tv-tracker7.png",
+    "assets/mobile-tv-tracker8.png"
     ]
   },
   {
